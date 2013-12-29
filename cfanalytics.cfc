@@ -111,14 +111,14 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 
 		<cftry>
 			<cfset local.results = variables.analytics.data().ga().get(arguments.tableId, 
-																	     arguments.startDate, 
-																	     arguments.endDate, 
-																	     arguments.metrics) 
-																	     .setDimensions(arguments.dimensions)
-																	     .setSort(arguments.sort)
-																	     .setFilters(arguments.filters)
-																	     .setMaxResults(arguments.maxResults)
-																	     .execute() /> 
+										   arguments.startDate, 
+									           arguments.endDate, 
+										   arguments.metrics) 
+										   .setDimensions(arguments.dimensions)
+										   .setSort(arguments.sort)
+										   .setFilters(arguments.filters)
+										   .setMaxResults(arguments.maxResults)
+										   .execute() /> 
 			<cfcatch type="any">
 			</cfcatch>
 		</cftry>
