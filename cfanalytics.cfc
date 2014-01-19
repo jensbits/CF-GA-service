@@ -108,6 +108,7 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 		<!--- Dimensions and metrics list: https://developers.google.com/analytics/devguides/reporting/core/dimsmets 
 			  Use the query explorer to help build queries: http://ga-dev-tools.appspot.com/explorer/ --->
 		<cfset local = {} />
+		<cfset local.request = "" />
 		<cfset local.results = {} />
 
 		<cftry>
