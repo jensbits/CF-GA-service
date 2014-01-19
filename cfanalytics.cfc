@@ -110,15 +110,26 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 		<cfset local.results = {} />
 
 		<cftry>
-			<cfset local.results = variables.analytics.data().ga().get(arguments.tableId, 
+			<cfset local.request = variables.analytics.data().ga().get(arguments.tableId, 
 										   arguments.startDate, 
-									           arguments.endDate, 
-										   arguments.metrics) 
-										   .setDimensions(arguments.dimensions)
-										   .setSort(arguments.sort)
-										   .setFilters(arguments.filters)
-										   .setMaxResults(arguments.maxResults)
-										   .execute() /> 
+										   arguments.endDate, 
+										   arguments.metrics) />
+			<!--- optional parameters --->
+			<cfif Len(arguments.dimensions)>
+				<cfset local.request.setDimensions(arguments.dimensions) />
+			</cfif>
+
+			<cfif Len(arguments.sort)>
+				<cfset local.request.setSort(arguments.sort) />
+			</cfif>
+
+			<cfif Len(arguments.filters)>
+				<cfset local.request.setFilters(arguments.filters) />
+			</cfif>
+		
+			<cfset local.request.setMaxResults(arguments.maxResults) />
+
+			<cfset local.results = local.request.execute() /> 
 			<cfcatch type="any">
 			</cfcatch>
 		</cftry>
