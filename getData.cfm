@@ -1,5 +1,8 @@
 <!--- the serviceAccountID email must have access to GA profile (read and analyze level) --->
 <!--- path to your .p12 file in pathToKeyFile (make sure it is NOT browsable --->
+
+<!--- cfanalytics.cfc is saved in folder named cfanalytics hence the path "cfanalytics.cfanalytics" --->
+<!--- use whatever path you saved the cfanalytics.cfc to --->
 <cfset cfanalytics = createObject("component", "cfanalytics.cfanalytics").init(
 										serviceAccountID="rdk2121kxxxxxxx@developer.gserviceaccount.com",
 										pathToKeyFile=expandPath("key.p12"), 
