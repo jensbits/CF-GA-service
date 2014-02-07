@@ -40,7 +40,7 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 		<cfset local = {} />
 		<cfset local.credential = "" />
 		<cfset local.returnStruct = {} />
-		<cfset local.returnStruct.success = false />
+		<cfset local.returnStruct.success = true />
 		<cfset local.returnStruct.error = "" />
 
 		<!--- Access tokens issued by the Google OAuth 2.0 Authorization Server expire in one hour. 
@@ -57,10 +57,9 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 						    .setServiceAccountPrivateKeyFromP12File(variables.File_Obj.Init(variables.pathToKeyFile))
 						    .build() />
 
-			<cfset local.returnStruct.success = true />
-
 			<cfcatch type="any">
 				<cfset local.returnStruct.error = "Credential Object Error: " & cfcatch.message & " - " & cfcatch.detail />
+				<cfset local.returnStruct.success = false />
 			</cfcatch>
 		</cftry>
 		 
@@ -71,10 +70,9 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 								.setHttpRequestInitializer(local.credential)
 								.build() />
 
-				<cfset local.returnStruct.success = true />
-
 				<cfcatch type="any">
 					<cfset local.returnStruct.error = "Analytics Object Error: " & cfcatch.message & " - " & cfcatch.detail />
+					<cfset local.returnStruct.success = false />
 				</cfcatch>
 			</cftry>
 		</cfif>
