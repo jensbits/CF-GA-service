@@ -6,7 +6,7 @@ Accessing Google Analytics API with Service Account and Coldfusion
 See http://www.jensbits.com/2013/12/28/google-analytics-api-offline-access-with-service-account-and-coldfusion/
 
 Set up credentials for accessing GA as service:
-===============================================
+-----------------------------------------------
 
 1. Create your project in the Google console: https://code.google.com/apis/console
 
@@ -23,7 +23,7 @@ The service account email address will be under the Service Account setting box 
 6. Add this email to the Google analytics profile(s) as a user with Read & Analyze access.
 
 Add the .jar files to the CF server
-===================================
+-----------------------------------
 
 1. Add the Google Analytics API v3 client library .jar files to the CF server in the WEB-INF/lib folder. The files can be currently found at: https://developers.google.com/api-client-library/java/apis/analytics/v3 The readme.html will list the dependencies. As of this post they are the following when using Jackson 2:
   google-api-services-analytics-v3-rev77-1.17.0-rc.jar
@@ -37,7 +37,7 @@ Add the .jar files to the CF server
 2. Restart the CF server (if you installed the .jar files directly on the server).
 
 Save the cfanalytics.cfc to your web root
-=========================================
+-----------------------------------------
 
 1. Save the cfanalytics folder to your web root or where you keep your com objects.
 
