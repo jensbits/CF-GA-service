@@ -41,9 +41,11 @@ Save the cfanalytics.cfc to your web root
 
 2. init() the cfanalytics object. This can be done as an application variable. The pathToKeyFile = expandPath("/your-path-to-key-file/your-key-name.p12"). Make sure this is non-browsable!
 
-3. Call the getData() method to access data.
+3. Call the getProfile() method to get the profile ID for the tableId parameter in the getData() method.
 
-4. Use the following links for references on getting profile information and data from GA:
+4. Call the getData() method to access data.
+
+5. Use the following links for references on getting profile information and data from GA:
   * https://developers.google.com/accounts/docs/OAuth2ServiceAccount
   * https://code.google.com/p/google-api-java-client/wiki/OAuth2
   * https://developers.google.com/api-client-library/java/apis/analytics/v3
