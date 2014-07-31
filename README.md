@@ -5,6 +5,10 @@ Accessing Google Analytics API with Service Account and Coldfusion
 
 See http://www.jensbits.com/2013/12/28/google-analytics-api-offline-access-with-service-account-and-coldfusion/
 
+For the Google Analytics Real Time APIR with Servie Account and Coldfusion
+
+See http://www.jensbits.com/2014/07/31/google-analytics-real-time-api-access-with-service-account-and-coldfusion/
+
 Set up credentials for accessing GA as service:
 -----------------------------------------------
 
@@ -43,11 +47,19 @@ Save the cfanalytics.cfc to your web root
 
 3. Call the getProfile() method to get the profile ID for the tableId parameter in the getData() method.
 
-4. Call the getData() method to access data.
+4. Call the getData() method to access data or the getRealTimeData() method for real time data.
 
 5. Use the following links for references on getting profile information and data from GA:
   * https://developers.google.com/accounts/docs/OAuth2ServiceAccount
   * https://code.google.com/p/google-api-java-client/wiki/OAuth2
+  
+  For the Core Reporting API:
   * https://developers.google.com/api-client-library/java/apis/analytics/v3
   * https://developers.google.com/analytics/devguides/reporting/core/dimsmets
   * http://ga-dev-tools.appspot.com/explorer/
+  
+  For the Real Time API
+  * https://developers.google.com/analytics/devguides/reporting/realtime/v3/
+  * https://developers.google.com/analytics/devguides/reporting/realtime/dimsmets/
+  * https://developers.google.com/apis-explorer/#p/analytics/v3/analytics.data.realtime.get
+
