@@ -5,7 +5,7 @@ Accessing Google Analytics API with Service Account and Coldfusion
 
 See http://www.jensbits.com/2013/12/28/google-analytics-api-offline-access-with-service-account-and-coldfusion/
 
-For the Google Analytics Real Time APIR with Servie Account and Coldfusion
+For the Google Analytics Real Time API with Servie Account and Coldfusion
 
 See http://www.jensbits.com/2014/07/31/google-analytics-real-time-api-access-with-service-account-and-coldfusion/
 
