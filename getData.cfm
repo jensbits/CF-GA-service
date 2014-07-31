@@ -30,3 +30,14 @@
 									 
 <!--- dump the structure returned --->
 <cfdump var="#GAdata#">
+
+<!--- tableId (profile id) of GA account to access --->
+<!---note that tableId, and metrics are required per Google --->
+<!--- dimensions, sort, filters, and maxResults are optional. maxResults default is 25 --->
+<cfset GArealTimeData = cfanalytics.getRealTimeData(tableId="ga:24431133",
+									 metrics="rt:pageviews",
+									 dimensions="rt:pagePath",
+									 sort="-rt:pageviews",
+									 maxResults=25) />
+
+<cfdump var="#GArealTimeData#">
