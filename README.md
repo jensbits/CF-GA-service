@@ -27,14 +27,14 @@ Set up credentials for accessing GA as service:
 Add the .jar files to the CF server
 -----------------------------------
 
-1. Add the Google Analytics API v3 client library .jar files to the CF server in the WEB-INF/lib folder. The files can be currently found at: https://developers.google.com/api-client-library/java/apis/analytics/v3 The readme.html will list the dependencies. As of this post they are the following when using Jackson 2:
-  * google-api-services-analytics-v3-rev77-1.17.0-rc.jar
-  * google-api-client-1.17.0-rc.jar
-  * google-oauth-client-1.17.0-rc.jar
-  * google-http-client-1.17.0-rc.jar
+1. Add the Google Analytics API v3 client library .jar files to the CF server in the WEB-INF/lib folder. The files can be currently found at: https://developers.google.com/api-client-library/java/apis/analytics/v3 The readme.html will list the dependencies. As of July 2014 they are the following when using Jackson 2:
+  * google-api-services-analytics-v3-rev99-1.19.0.jar
+  * google-api-client-1.19.0.jar
+  * google-oauth-client-1.19.0.jar
+  * google-http-client-1.19.0.jar
   * jsr305-1.3.9.jar
-  * google-http-client-jackson2-1.17.0-rc.jar
-  * jackson-core-$2.1.3.jar
+  * google-http-client-jackson2-1.19.0.jar
+  * jackson-core-2.1.3.jar
 
 2. Restart the CF server (if you installed the .jar files directly on the server).
 
@@ -45,7 +45,7 @@ Save the cfanalytics.cfc to your web root
 
 2. init() the cfanalytics object. This can be done as an application variable. The pathToKeyFile = expandPath("/your-path-to-key-file/your-key-name.p12"). Make sure this is non-browsable!
 
-3. Call the getProfile() method to get the profile ID for the tableId parameter in the getData() method.
+3. Call the getProfile() method to get the profile ID for the tableId parameter in the getData() and getRealTimeData() method.
 
 4. Call the getData() method to access data or the getRealTimeData() method for real time data.
 
