@@ -83,10 +83,12 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 	<cffunction name="getProfiles" access="public" output="false" returntype="struct" hint="returns all profiles">
 		<cfset local = {} />
 		<cfset local.results = {} />
+		<cfset local.results.error = "" />
 
 		<cftry>
 			<cfset local.results = variables.analytics.management().profiles().list("~all", "~all").execute() />
 			<cfcatch type="any">
+				<cfset local.results.error = cfcatch.message & " " & cfcatch.detail />
 			</cfcatch>
 		</cftry>
 
@@ -108,6 +110,7 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 		<cfset local = {} />
 		<cfset local.request = "" />
 		<cfset local.results = {} />
+		<cfset local.results.error = "" />
 
 		<cftry>
 			<cfset local.request = variables.analytics.data().ga().get(arguments.tableId, 
@@ -131,6 +134,50 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 
 			<cfset local.results = local.request.execute() /> 
 			<cfcatch type="any">
+				<cfset local.results.error = cfcatch.message & " " & cfcatch.detail />
+			</cfcatch>
+		</cftry>
+
+		<cfreturn local.results />
+	</cffunction> 
+	
+	<cffunction name="getRealTimeData" access="public" output="false" returntype="struct" hint="returns GA data">
+		<cfargument name="tableId" required="true" type="string" hint="profile (table) id to be queried" />
+		<cfargument name="metrics" required="true" type="string" hint="query metrics" />
+		<cfargument name="dimensions" required="false" type="string" default="" hint="query dimensions" />
+		<cfargument name="sort" required="false" type="string" default="" hint="query sort" />
+		<cfargument name="filters" required="false" type="string" default="" hint="query filters" />
+		<cfargument name="maxResults" required="false" type="numeric" default="25" hint="max num of results" />
+
+		<!--- Dimensions and metrics list: https://developers.google.com/analytics/devguides/reporting/realtime/dimsmets/ 
+			  Use the query explorer to help build queries: https://developers.google.com/apis-explorer/#p/analytics/v3/analytics.data.realtime.get --->
+		<cfset local = {} />
+		<cfset local.request = "" />
+		<cfset local.results = {} />
+		<cfset local.results.error = "" />
+
+		<cftry>
+			<cfset local.request = variables.analytics.data().realtime().get(arguments.tableId, arguments.metrics) />
+
+			<!--- optional parameters --->
+			<cfif Len(arguments.dimensions)>
+				<cfset local.request.setDimensions(arguments.dimensions) />
+			</cfif>
+
+			<cfif Len(arguments.sort)>
+				<cfset local.request.setSort(arguments.sort) />
+			</cfif>
+
+			<cfif Len(arguments.filters)>
+				<cfset local.request.setFilters(arguments.filters) />
+			</cfif>
+		
+			<cfset local.request.setMaxResults(arguments.maxResults) />
+
+			<cfset local.results = local.request.execute() /> 
+
+			<cfcatch type="any">
+				<cfset local.results.error = cfcatch.message & " " & cfcatch.detail />
 			</cfcatch>
 		</cftry>
 
