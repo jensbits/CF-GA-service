@@ -26,7 +26,10 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 			variables.Credential_Builder       = createObject("java", "com.google.api.client.googleapis.auth.oauth2.GoogleCredential$Builder");
 
 			variables.Analytics_Scopes         = createObject("java", "com.google.api.services.analytics.AnalyticsScopes");
-			variables.Analytics_Builder        = createObject("java", "com.google.api.services.analytics.Analytics$Builder").init(HTTP_Transport, JSON_Factory, HTTP_Request_Initializer);
+			variables.Analytics_Builder        = createObject("java", "com.google.api.services.analytics.Analytics$Builder").init(
+																	      variables.HTTP_Transport, 
+																	      variables.JSON_Factory, 
+																	      variables.HTTP_Request_Initializer);
 			variables.Collections              = createObject("java", "java.util.Collections");
 			variables.File_Obj                 = createObject("java", "java.io.File");
 
