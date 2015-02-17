@@ -27,13 +27,14 @@ Set up credentials for accessing GA as service:
 Add the .jar files to the CF server
 -----------------------------------
 
-1. Add the Google Analytics API v3 client library .jar files to the CF server in the WEB-INF/lib folder. The files can be currently found at: https://developers.google.com/api-client-library/java/apis/analytics/v3 The readme.html will list the dependencies. As of August 2014 they are the following when using Jackson 2:
-  * google-api-services-analytics-v3-rev99-1.19.0.jar
-  * google-api-client-1.19.0.jar
+1. Add the Google Analytics API v3 client library .jar files to the CF server in the WEB-INF/lib folder. The files can be currently found at: https://developers.google.com/api-client-library/java/apis/analytics/v3 The readme.html will list the dependencies. As of February 2015 they are the following when using Jackson 2:
+
+  * google-api-services-analytics-v3-rev111-1.19.1.jar
+  * google-api-client-1.19.1.jar
   * google-oauth-client-1.19.0.jar
   * google-http-client-1.19.0.jar
   * jsr305-1.3.9.jar
-  * google-http-client-jackson2-1.19.0.jar
+  * google-http-client-jackson2-1.19.1.jar
   * jackson-core-2.1.3.jar
 
 2. Restart the CF server (if you installed the .jar files directly on the server).
