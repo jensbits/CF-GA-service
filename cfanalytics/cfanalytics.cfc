@@ -29,12 +29,8 @@ References: https://developers.google.com/accounts/docs/OAuth2ServiceAccount
 			variables.Analytics_Builder        = createObject("java", "com.google.api.services.analytics.Analytics$Builder").init(
 																	     variables.HTTP_Transport, 
 																	     variables.JSON_Factory, 
-																	     variables.HTTP_Request_Initializer);
-																	     
-			// Railo only. Remove the createObject for variables.Analytics_Builder above and uncomment this
-			// variables.Analytics_Builder   = createObject("java","com.google.api.services.analytics.Analytics$Builder").init(variables.HTTP_Transport, variables.JSON_Factory, JavaCast("null", ""));
-
-
+																	     javaCast("null", ""));
+																	    
 			variables.Collections              = createObject("java", "java.util.Collections");
 			variables.File_Obj                 = createObject("java", "java.io.File");
 
