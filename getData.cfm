@@ -14,7 +14,7 @@
 <cfset request.GAprofiles = request.cfanalytics.getProfiles() />
 
 <!--- get profiles info. includes the profile id needed for the tableId parameter below --->
-<cfdump var="request.#GAprofiles#">
+<cfdump var="#request.GAprofiles#">
 
 <!--- tableId (profile id) of GA account to access --->
 <!---note that tableId, startDate, endDate, and metrics are required per Google --->
